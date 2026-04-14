@@ -20,6 +20,7 @@
       --muted: #5c5c5c;
       --line: rgba(0, 0, 0, 0.14);
       --shadow: rgba(0, 47, 73, 0.18);
+      --hero-bg: url("azri-webinar-assets/open-lesson-blue.png");
       --font-main: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
       --font-georgian: "Noto Sans Georgian", "Roboto Condensed", Arial, sans-serif;
     }
@@ -143,7 +144,7 @@
       color: var(--cream);
       background:
         linear-gradient(90deg, rgba(0, 47, 73, 0.98) 0%, rgba(0, 47, 73, 0.86) 43%, rgba(120, 0, 0, 0.68) 100%),
-        url("azri-webinar-assets/open-lesson-blue.png") right bottom / auto 100% no-repeat,
+        var(--hero-bg) right bottom / auto 100% no-repeat,
         var(--ink);
     }
 
@@ -198,7 +199,7 @@
       text-transform: uppercase;
     }
 
-    h1 span {
+    h1 .highlight {
       color: var(--blue);
     }
 
@@ -687,7 +688,7 @@
         min-height: 680px;
         background:
           linear-gradient(180deg, rgba(0, 47, 73, 0.98), rgba(120, 0, 0, 0.74)),
-          url("azri-webinar-assets/open-lesson-blue.png") center bottom / auto 62% no-repeat,
+          var(--hero-bg) center bottom / auto 62% no-repeat,
           var(--ink);
       }
 
@@ -799,138 +800,51 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="AZRI">
-      <span class="brand-mark">ა</span>
-      <span>AZRI<br>школа грузинского языка</span>
+      <span class="brand-mark" data-content="brand.mark"></span>
+      <span><span data-content="brand.name"></span><br><span data-content="brand.subtitle"></span></span>
     </a>
-    <nav class="nav" aria-label="Навигация">
-      <a href="#program">Что будет</a>
-      <a href="#speaker">Спикер</a>
-      <a href="#register">Регистрация</a>
-    </nav>
-    <a class="button secondary" href="#register">Зарегистрироваться</a>
+    <nav class="nav" aria-label="Навигация" data-repeat="navigation"></nav>
+    <a class="button secondary" href="#register" data-content="registration.fields.submit"></a>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow">Открытый онлайн-урок AZRI</p>
-        <h1 id="hero-title">Грузинский <span>за час</span></h1>
-        <p class="hero-text">Для тех, кто только начинает учить грузинский, планирует погружаться в традиции и культуру страны или просто давно влюблен в Сакартвело.</p>
+        <p class="eyebrow" data-content="hero.eyebrow"></p>
+        <h1 id="hero-title"><span data-content="hero.title"></span> <span class="highlight" data-content="hero.highlightedTitle"></span></h1>
+        <p class="hero-text" data-content="hero.text"></p>
         <div class="hero-actions">
-          <a class="button" href="#register">Забронировать место</a>
-          <a class="button secondary" href="#program">Посмотреть программу</a>
+          <a class="button" data-content="hero.primaryCta" data-href="hero.primaryHref"></a>
+          <a class="button secondary" data-content="hero.secondaryCta" data-href="hero.secondaryHref"></a>
         </div>
-        <div class="event-strip" aria-label="Детали урока">
-          <div>
-            <span class="label">Когда</span>
-            <span class="value">28 апреля 2026</span>
-          </div>
-          <div>
-            <span class="label">Время</span>
-            <span class="value">20:00 по Тбилиси</span>
-          </div>
-          <div>
-            <span class="label">Формат</span>
-            <span class="value">Онлайн, около часа</span>
-          </div>
-        </div>
+        <div class="event-strip" aria-label="Детали урока" data-repeat="hero.event"></div>
       </div>
     </section>
 
     <section class="section white" aria-labelledby="results-title">
       <div class="inner">
-        <h2 class="section-title" id="results-title">За урок вы сделаете первые шаги в языке</h2>
-        <div class="result-grid">
-          <article class="result-card">
-            <strong>01</strong>
-            <div>
-              <h3>Разберетесь с алфавитом</h3>
-              <p>Увидите логику грузинских букв и попробуете читать первые слова без страха перед новым письмом.</p>
-            </div>
-          </article>
-          <article class="result-card">
-            <strong>02</strong>
-            <div>
-              <h3>Поздороваетесь и представитесь</h3>
-              <p>Научитесь говорить базовые фразы: приветствие, имя, простое знакомство и вежливые ответы.</p>
-            </div>
-          </article>
-          <article class="result-card">
-            <strong>03</strong>
-            <div>
-              <h3>Узнаете 100+ слов</h3>
-              <p>Поймете, как быстро распознавать знакомые корни и бытовые слова, которые встречаются в Грузии каждый день.</p>
-            </div>
-          </article>
-        </div>
+        <h2 class="section-title" id="results-title" data-content="results.title"></h2>
+        <div class="result-grid" data-repeat="results.items"></div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="audience-title">
       <div class="inner">
-        <h2 class="section-title" id="audience-title">Кому подойдет открытый урок</h2>
-        <p class="lead">Мы сделали страницу для холодной аудитории: без давления, с понятным обещанием и быстрым входом в регистрацию.</p>
-        <div class="audience-grid">
-          <article class="audience-item">
-            <h3>Экспатам в Грузии</h3>
-            <p>Чтобы чувствовать себя увереннее в магазинах, кафе, такси и соседском общении.</p>
-          </article>
-          <article class="audience-item">
-            <h3>Этническим грузинам</h3>
-            <p>Если хочется восстановить связь с языком семьи, культурой и историей.</p>
-          </article>
-          <article class="audience-item">
-            <h3>Туристам</h3>
-            <p>Для тех, кто влюбился в Грузию и хочет сказать больше, чем обычное “спасибо”.</p>
-          </article>
-          <article class="audience-item">
-            <h3>Близким грузин</h3>
-            <p>Чтобы лучше понимать родных, традиции и живую речь вокруг семьи.</p>
-          </article>
-        </div>
+        <h2 class="section-title" id="audience-title" data-content="audience.title"></h2>
+        <p class="lead" data-content="audience.lead"></p>
+        <div class="audience-grid" data-repeat="audience.items"></div>
       </div>
     </section>
 
     <section class="section blue" id="program" aria-labelledby="program-title">
       <div class="inner lesson-flow">
         <div class="quote-panel">
-          <p>Грузинский кажется сложным, пока вы не видите систему.</p>
-          <span class="georgian" lang="ka">გამარჯობა</span>
+          <p data-content="program.quote"></p>
+          <span class="georgian" lang="ka" data-content="program.georgianWord"></span>
         </div>
         <div>
-          <h2 class="section-title" id="program-title">Что будет на уроке</h2>
-          <ol class="flow-list">
-            <li>
-              <div>
-                <strong>Знакомство с алфавитом</strong>
-                <span>Разберем первые буквы и прочитаем простые слова вместе.</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <strong>Живые фразы для старта</strong>
-                <span>Поздороваемся, представимся и потренируем короткий диалог.</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <strong>100+ слов через узнавание</strong>
-                <span>Покажем, как замечать знакомые слова в речи, вывесках и повседневных ситуациях.</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <strong>Практика и видеоролики</strong>
-                <span>Будем повторять вслух, смотреть короткие фрагменты и закреплять материал.</span>
-              </div>
-            </li>
-            <li>
-              <div>
-                <strong>Подарки участникам</strong>
-                <span>Каждый участник получит бонусные материалы после урока.</span>
-              </div>
-            </li>
-          </ol>
+          <h2 class="section-title" id="program-title" data-content="program.title"></h2>
+          <ol class="flow-list" data-repeat="program.items"></ol>
         </div>
       </div>
     </section>
@@ -938,25 +852,12 @@
     <section class="section white" id="speaker" aria-labelledby="speaker-title">
       <div class="inner speaker">
         <div class="speaker-portrait" aria-hidden="true">
-          <span>ა</span>
+          <span data-content="speaker.mark"></span>
         </div>
         <div>
-          <h2 id="speaker-title">Ведущий — Рамин Джинчарадзе</h2>
-          <p>Основатель первой онлайн-школы грузинского языка AZRI. Исследователь и энтузиаст грузинской культуры, который помогает студентам заходить в язык через смысл, практику и живой контекст страны.</p>
-          <div class="proof-row" aria-label="Доказательства">
-            <div class="proof">
-              <strong>26 000</strong>
-              <span>студентов уже учились в AZRI</span>
-            </div>
-            <div class="proof">
-              <strong>46</strong>
-              <span>стран в географии школы</span>
-            </div>
-            <div class="proof">
-              <strong>1-я</strong>
-              <span>онлайн-школа грузинского языка</span>
-            </div>
-          </div>
+          <h2 id="speaker-title" data-content="speaker.title"></h2>
+          <p data-content="speaker.text"></p>
+          <div class="proof-row" aria-label="Доказательства" data-repeat="speaker.proof"></div>
         </div>
       </div>
     </section>
@@ -964,68 +865,49 @@
     <section class="section dark" aria-labelledby="visual-title">
       <div class="inner visual-band">
         <div class="visual-copy">
-          <h2 id="visual-title">Это не лекция “послушать и уйти”</h2>
-          <p>На уроке будет практика: произнесем слова, потренируем приветствие, посмотрим видеоролики и соберем первые маленькие победы в языке.</p>
-          <a class="button" href="#register">Хочу на урок</a>
+          <h2 id="visual-title" data-content="visual.title"></h2>
+          <p data-content="visual.text"></p>
+          <a class="button" data-content="visual.cta" data-href="visual.href"></a>
         </div>
         <figure class="visual-image">
-          <img src="azri-webinar-assets/open-lesson-blue.png" alt="Креатив AZRI для открытого урока «Грузинский за час»">
+          <img data-image="hero.image" data-alt="visual.imageAlt" src="" alt="">
         </figure>
       </div>
     </section>
 
     <section class="section white" aria-labelledby="faq-title">
       <div class="inner">
-        <h2 class="section-title" id="faq-title">Если вы начинаете с нуля — это нормально</h2>
-        <div class="faq-grid">
-          <article class="faq-item">
-            <h3>Нужен ли уровень?</h3>
-            <p>Нет. Урок рассчитан на тех, кто только начинает или пока знает отдельные слова.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Будет ли практика?</h3>
-            <p>Да. Будем повторять фразы, читать первые слова и сразу применять материал.</p>
-          </article>
-          <article class="faq-item">
-            <h3>Что после регистрации?</h3>
-            <p>Мы передадим заявку в AmoCRM, а команда AZRI пришлет детали подключения и напоминание.</p>
-          </article>
-        </div>
+        <h2 class="section-title" id="faq-title" data-content="faq.title"></h2>
+        <div class="faq-grid" data-repeat="faq.items"></div>
       </div>
     </section>
 
     <section class="section blue" id="register" aria-labelledby="register-title">
       <div class="inner registration">
         <div>
-          <h2 id="register-title">Зарегистрируйтесь на открытый урок</h2>
-          <p>Вторник, 28 апреля 2026, 20:00 по Тбилиси. Оставьте контакт, и команда AZRI пришлет ссылку на онлайн-урок и бонусные материалы.</p>
+          <h2 id="register-title" data-content="registration.title"></h2>
+          <p data-content="registration.text"></p>
         </div>
-        <form class="form" id="leadForm" action="#" method="post" data-amocrm-endpoint="">
+        <form class="form" id="leadForm" action="#" method="post">
           <div class="form-row">
             <div>
-              <label for="name">Имя</label>
-              <input id="name" name="name" autocomplete="name" placeholder="Например, Нино" required>
+              <label for="name" data-content="registration.fields.nameLabel"></label>
+              <input id="name" name="name" autocomplete="name" required>
             </div>
             <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+              <label for="email" data-content="registration.fields.emailLabel"></label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
             </div>
           </div>
 
-          <label for="contact">Контакт для напоминания</label>
-          <input id="contact" name="contact" autocomplete="tel" placeholder="Telegram, WhatsApp или телефон">
+          <label for="contact" data-content="registration.fields.contactLabel"></label>
+          <input id="contact" name="contact" autocomplete="tel">
 
-          <label for="segment">Что ближе к вам?</label>
-          <select id="segment" name="segment">
-            <option value="expat">Живу в Грузии</option>
-            <option value="heritage">Есть грузинские корни</option>
-            <option value="tourist">Люблю путешествовать по Грузии</option>
-            <option value="family">Есть близкие грузины</option>
-            <option value="other">Другое</option>
-          </select>
+          <label for="segment" data-content="registration.fields.segmentLabel"></label>
+          <select id="segment" name="segment"></select>
 
-          <button class="button" type="submit">Зарегистрироваться</button>
-          <p class="form-note">Для подключения AmoCRM вставьте webhook или backend-endpoint в атрибут <code>data-amocrm-endpoint</code> формы.</p>
+          <button class="button" type="submit" data-content="registration.fields.submit"></button>
+          <p class="form-note" data-content="registration.note"></p>
           <div class="status" id="formStatus" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -1034,46 +916,189 @@
 
   <footer class="footer">
     <div class="inner">
-      <p>AZRI — школа грузинского языка</p>
-      <p>Грузинский становится ближе, когда рядом есть система.</p>
+      <p data-content="footer.left"></p>
+      <p data-content="footer.right"></p>
     </div>
   </footer>
 
+  <script src="content.js"></script>
   <script>
-    const form = document.querySelector("#leadForm");
-    const statusEl = document.querySelector("#formStatus");
+    const content = window.LANDING_CONTENT;
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    const get = (path) => path.split(".").reduce((value, key) => value?.[key], content);
 
-      const endpoint = form.dataset.amocrmEndpoint;
-      const data = Object.fromEntries(new FormData(form).entries());
-      data.event = "open_lesson_georgian_in_hour";
-      data.lesson_date = "2026-04-28 20:00 Asia/Tbilisi";
-
-      if (!endpoint) {
-        statusEl.textContent = "Форма готова. Осталось подключить endpoint AmoCRM в HTML.";
-        console.table(data);
-        return;
+    const setText = (selector, value) => {
+      const element = document.querySelector(selector);
+      if (element && value !== undefined) {
+        element.textContent = value;
       }
+    };
 
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
+    const make = (tagName, className) => {
+      const element = document.createElement(tagName);
+      if (className) element.className = className;
+      return element;
+    };
 
-        if (!response.ok) {
-          throw new Error("Request failed");
+    const renderNavigation = (items) => {
+      const nav = document.querySelector('[data-repeat="navigation"]');
+      nav.replaceChildren(...items.map((item) => {
+        const link = make("a");
+        link.href = item.href;
+        link.textContent = item.label;
+        return link;
+      }));
+    };
+
+    const renderEvent = (items) => {
+      const strip = document.querySelector('[data-repeat="hero.event"]');
+      strip.replaceChildren(...items.map((item) => {
+        const wrapper = make("div");
+        const label = make("span", "label");
+        const value = make("span", "value");
+        label.textContent = item.label;
+        value.textContent = item.value;
+        wrapper.append(label, value);
+        return wrapper;
+      }));
+    };
+
+    const renderCards = (selector, items, className, withNumber = false) => {
+      const container = document.querySelector(selector);
+      container.replaceChildren(...items.map((item) => {
+        const card = make("article", className);
+        if (withNumber) {
+          const number = make("strong");
+          number.textContent = item.number;
+          card.append(number);
+        }
+        const body = make("div");
+        const title = make("h3");
+        const text = make("p");
+        title.textContent = item.title;
+        text.textContent = item.text;
+        body.append(title, text);
+        card.append(body);
+        return card;
+      }));
+    };
+
+    const renderProgram = (items) => {
+      const list = document.querySelector('[data-repeat="program.items"]');
+      list.replaceChildren(...items.map((item) => {
+        const li = make("li");
+        const body = make("div");
+        const title = make("strong");
+        const text = make("span");
+        title.textContent = item.title;
+        text.textContent = item.text;
+        body.append(title, text);
+        li.append(body);
+        return li;
+      }));
+    };
+
+    const renderProof = (items) => {
+      const row = document.querySelector('[data-repeat="speaker.proof"]');
+      row.replaceChildren(...items.map((item) => {
+        const proof = make("div", "proof");
+        const value = make("strong");
+        const label = make("span");
+        value.textContent = item.value;
+        label.textContent = item.label;
+        proof.append(value, label);
+        return proof;
+      }));
+    };
+
+    const renderSelect = (items) => {
+      const select = document.querySelector("#segment");
+      select.replaceChildren(...items.map((item) => {
+        const option = make("option");
+        option.value = item.value;
+        option.textContent = item.label;
+        return option;
+      }));
+    };
+
+    const renderContent = () => {
+      document.title = content.meta.title;
+      document.querySelector('meta[name="description"]').content = content.meta.description;
+      document.documentElement.style.setProperty("--hero-bg", `url("${content.hero.image}")`);
+
+      document.querySelectorAll("[data-content]").forEach((element) => {
+        const value = get(element.dataset.content);
+        if (value !== undefined) element.textContent = value;
+      });
+
+      document.querySelectorAll("[data-href]").forEach((element) => {
+        const value = get(element.dataset.href);
+        if (value) element.href = value;
+      });
+
+      document.querySelectorAll("[data-image]").forEach((element) => {
+        const value = get(element.dataset.image);
+        if (value) element.src = value;
+      });
+
+      document.querySelectorAll("[data-alt]").forEach((element) => {
+        const value = get(element.dataset.alt);
+        if (value) element.alt = value;
+      });
+
+      document.querySelector("#name").placeholder = content.registration.fields.namePlaceholder;
+      document.querySelector("#email").placeholder = content.registration.fields.emailPlaceholder;
+      document.querySelector("#contact").placeholder = content.registration.fields.contactPlaceholder;
+
+      renderNavigation(content.navigation);
+      renderEvent(content.hero.event);
+      renderCards('[data-repeat="results.items"]', content.results.items, "result-card", true);
+      renderCards('[data-repeat="audience.items"]', content.audience.items, "audience-item");
+      renderProgram(content.program.items);
+      renderProof(content.speaker.proof);
+      renderCards('[data-repeat="faq.items"]', content.faq.items, "faq-item");
+      renderSelect(content.registration.segmentOptions);
+    };
+
+    const setupForm = () => {
+      const form = document.querySelector("#leadForm");
+      const statusEl = document.querySelector("#formStatus");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const endpoint = content.registration.amocrmEndpoint;
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.event = "open_lesson_georgian_in_hour";
+        data.lesson_date = content.registration.lessonDate;
+
+        if (!endpoint) {
+          statusEl.textContent = content.registration.emptyEndpointMessage;
+          console.table(data);
+          return;
         }
 
-        statusEl.textContent = "Готово. Мы отправили заявку и скоро пришлем детали урока.";
-        form.reset();
-      } catch (error) {
-        statusEl.textContent = "Не получилось отправить заявку. Попробуйте еще раз или напишите AZRI напрямую.";
-      }
-    });
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            throw new Error("Request failed");
+          }
+
+          statusEl.textContent = content.registration.successMessage;
+          form.reset();
+        } catch (error) {
+          statusEl.textContent = content.registration.errorMessage;
+        }
+      });
+    };
+
+    renderContent();
+    setupForm();
   </script>
 </body>
 </html>
