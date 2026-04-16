@@ -469,17 +469,28 @@
       line-height: 0.8;
     }
 
-    .speaker-portrait span {
+    .speaker-portrait img {
       position: relative;
-      display: grid;
-      place-items: center;
-      width: 190px;
-      height: 190px;
-      border: 2px solid rgba(253, 240, 212, 0.7);
+      z-index: 1;
+      width: min(78%, 330px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+      border: 3px solid rgba(253, 240, 212, 0.82);
       border-radius: 8px;
+      box-shadow: 18px 18px 0 rgba(0, 0, 0, 0.22);
+    }
+
+    .speaker-portrait span {
+      position: absolute;
+      right: 26px;
+      top: 22px;
+      z-index: 2;
+      color: rgba(253, 240, 212, 0.9);
       font-family: var(--font-georgian);
-      font-size: 128px;
+      font-size: 74px;
       font-weight: 700;
+      line-height: 1;
     }
 
     .speaker h2 {
@@ -852,6 +863,7 @@
     <section class="section white" id="speaker" aria-labelledby="speaker-title">
       <div class="inner speaker">
         <div class="speaker-portrait" aria-hidden="true">
+          <img data-image="speaker.image" data-alt="speaker.imageAlt" src="" alt="">
           <span data-content="speaker.mark"></span>
         </div>
         <div>
@@ -1028,7 +1040,13 @@
 
       document.querySelectorAll("[data-content]").forEach((element) => {
         const value = get(element.dataset.content);
-        if (value !== undefined) element.textContent = value;
+        if (value === undefined || value === "") {
+          element.hidden = true;
+          return;
+        }
+
+        element.hidden = false;
+        element.textContent = value;
       });
 
       document.querySelectorAll("[data-href]").forEach((element) => {
